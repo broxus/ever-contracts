@@ -1,0 +1,32 @@
+{
+  "name": "@broxus/contracts",
+  "version": "1.0.0",
+  "description": "Set of contracts for simple smart contract development",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/broxus/ton-contracts.git"
+  },
+  "keywords": [
+    "solidity",
+    "freeton",
+    "ton",
+    "smart",
+    "contracts"
+  ],
+  "author": "pavlovdog_ <pavlovdog.moscow@gmail.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/broxus/ton-contracts/issues"
+  },
+  "homepage": "https://github.com/broxus/ton-contracts#readme",
+  "dependencies": {
+    "chai": "^4.3.4",
+    "chai-as-promised": "^7.1.1",
+    "locklift": "^1.1.7",
+    "mocha-logger": "^1.0.7"
+  }
+}
