@@ -10,10 +10,7 @@ const afterRun = async (tx) => {
 };
 
 
-const getRandomNonce = () => Math.random() * 64000 | 0;
-
 
 module.exports = {
   afterRun,
-  getRandomNonce,
 };

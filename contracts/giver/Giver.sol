@@ -2,18 +2,23 @@ pragma ton-solidity ^0.39.0;
 pragma AbiHeader expire;
 pragma AbiHeader pubkey;
 
+import "../access/ExternalOwner.sol";
+import "../utils/RandomNonce.sol";
+import "../utils/CheckPubKey.sol";
 
-contract Giver {
-    uint static public owner;
 
-    constructor() public {
-        require(tvm.pubkey() == msg.pubkey(), 101);
+/*
+    @title Sample giver contract. Store TONs on the balance
+    and send it on the owner's request
+*/
+contract Giver is ExternalOwner, RandomNonce, CheckPubKey {
+    constructor(uint _owner) public checkPubKey {
         tvm.accept();
+
+        setOwnership(_owner);
     }
 
-    function sendGrams(address dest, uint64 amount) public view {
-        require(msg.pubkey() == owner, 101);
-        require(address(this).balance > amount, 102);
+    function sendGrams(address dest, uint64 amount) public view onlyOwner {
         tvm.accept();
 
         dest.transfer(amount, false, 1);

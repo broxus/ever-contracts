@@ -3,26 +3,27 @@ pragma AbiHeader expire;
 pragma AbiHeader pubkey;
 
 
+import "./../access/ExternalOwner.sol";
+import "./../utils/RandomNonce.sol";
+import "./../utils/CheckPubKey.sol";
+
+
 /*
     @title Simple externally owned contract
     @dev Allows to interact with any smart contract by sending an internal messages
     or simply transfer TONs
 */
-contract Account {
-    uint16 static _randomNonce;
-    uint public owner;
-
-    constructor() public {
-        require(tvm.pubkey() == msg.pubkey());
+contract Account is ExternalOwner, RandomNonce, CheckPubKey {
+    constructor() public checkPubKey {
         tvm.accept();
 
-        owner = msg.pubkey();
+        setOwnership(msg.pubkey());
     }
 
     /*
         @notice Send transaction to another contract
         @param dest Destination address
-        @param value Amount of attached balance
+        @param value Amount of attached TONs
         @param bounce Message bounce
         @param flags Message flags
         @param payload Tvm cell encoded payload, such as method call
@@ -36,8 +37,8 @@ contract Account {
     )
         public
         view
+        onlyOwner
     {
-        require(msg.pubkey() == owner, 101);
         tvm.accept();
 
         dest.transfer(value, bounce, flags, payload);

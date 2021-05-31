@@ -12,43 +12,38 @@ describe('Test giver', async function() {
   this.timeout(200000);
 
   let giver;
-  
+
   it('Deploy giver', async function() {
     const Giver = await locklift.factory.getContract('Giver');
-    
+
     const keyPair = await locklift.ton.client.crypto.generate_random_sign_keys();
-  
+
     giver = await locklift.giver.deployContract({
       contract: Giver,
-      constructorParams: {},
-      initParams: {
-        owner: `0x${keyPair.public}`,
+      constructorParams: {
+        _owner: `0x${keyPair.public}`,
       },
       keyPair,
     }, locklift.utils.convertCrystal(3, 'nano'));
-    
+
     giver.afterRun = utils.afterRun;
     giver.setKeyPair(keyPair);
-    
+
     logger.log(`Giver: ${giver.address}`);
   });
-  
+
   describe('Send funds', async function() {
     let receiver;
 
-    it('Setup receiver wallets', async function() {
+    it('Setup receiver wallet', async function() {
       const Account = await locklift.factory.getContract('Account');
       const keyPair = await locklift.ton.client.crypto.generate_random_sign_keys();
-  
+
       receiver = await locklift.giver.deployContract({
         contract: Account,
-        constructorParams: {},
-        initParams: {
-          _randomNonce: utils.getRandomNonce(),
-        },
         keyPair,
       });
-      
+
       logger.log(`Receiver account: ${receiver.address}`);
     }, locklift.utils.convertCrystal(1, 'nano'));
 
@@ -62,7 +57,7 @@ describe('Test giver', async function() {
           amount: locklift.utils.convertCrystal(1, 'nano'),
         }
       });
-      
+
       const finalBalance = await locklift.ton.getBalance(receiver.address);
 
       expect(finalBalance.toNumber())
@@ -72,7 +67,7 @@ describe('Test giver', async function() {
     it('Use wrong key', async function() {
       const wrongKey = await locklift.ton.client.crypto.generate_random_sign_keys();
       giver.setKeyPair(wrongKey);
-      
+
       await expect(
         giver.run({
           method: 'sendGrams',
@@ -81,7 +76,7 @@ describe('Test giver', async function() {
             amount: locklift.utils.convertCrystal(1, 'nano'),
           }
         })
-      ).to.eventually.be.rejectedWith('exit code: 101');
+      ).to.eventually.be.rejectedWith('exit code: 1101');
     });
   });
 });

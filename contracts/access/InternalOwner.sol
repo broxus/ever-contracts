@@ -3,16 +3,16 @@ pragma AbiHeader expire;
 pragma AbiHeader pubkey;
 
 
+import "./../ErrorCodes.sol";
+
+
 contract InternalOwner {
     address public owner;
 
-    event OwnershipTransferred(
-        address previousOwner,
-        address newOwner
-    );
+    event OwnershipTransferred(address previousOwner, address newOwner);
 
     modifier onlyOwner() {
-        require(msg.sender == owner, 101);
+        require(msg.sender == owner, ErrorCodes.NOT_OWNER);
         _;
     }
 
@@ -21,7 +21,11 @@ contract InternalOwner {
         Can be used in child contracts
     */
     function setOwnership(address newOwner) internal {
+        address oldOwner = owner;
+
         owner = newOwner;
+
+        emit OwnershipTransferred(oldOwner, newOwner);
     }
 
     /*
@@ -30,11 +34,9 @@ contract InternalOwner {
     function transferOwnership(
         address newOwner
     ) external onlyOwner {
-        require(newOwner != address.makeAddrStd(0, 0), 102);
+        require(newOwner != address.makeAddrStd(0, 0), ErrorCodes.ZERO_OWNER);
 
         setOwnership(newOwner);
-
-        emit OwnershipTransferred(owner, newOwner);
     }
 
     /*
@@ -44,7 +46,5 @@ contract InternalOwner {
         address newOwner = address.makeAddrStd(0, 0);
 
         setOwnership(newOwner);
-
-        emit OwnershipTransferred(owner, newOwner);
     }
 }
