@@ -2,7 +2,7 @@ pragma ton-solidity ^0.39.0;
 pragma AbiHeader expire;
 pragma AbiHeader pubkey;
 
-import "./../ErrorCodes.sol";
+import "./../_ErrorCodes.sol";
 
 
 contract ExternalOwner {
@@ -11,7 +11,7 @@ contract ExternalOwner {
     event OwnershipTransferred(uint previousOwner, uint newOwner);
 
     modifier onlyOwner() {
-        require(msg.pubkey() == owner, ErrorCodes.NOT_OWNER);
+        require(msg.pubkey() == owner, _ErrorCodes.NOT_OWNER);
         _;
     }
 
@@ -33,7 +33,7 @@ contract ExternalOwner {
     function transferOwnership(
         uint newOwner
     ) external onlyOwner {
-        require(newOwner != 0, ErrorCodes.ZERO_OWNER);
+        require(newOwner != 0, _ErrorCodes.ZERO_OWNER);
         tvm.accept();
 
         setOwnership(newOwner);

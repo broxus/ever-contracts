@@ -3,7 +3,7 @@ pragma AbiHeader expire;
 pragma AbiHeader pubkey;
 
 
-import "./../ErrorCodes.sol";
+import "./../_ErrorCodes.sol";
 
 
 contract InternalOwner {
@@ -12,7 +12,7 @@ contract InternalOwner {
     event OwnershipTransferred(address previousOwner, address newOwner);
 
     modifier onlyOwner() {
-        require(msg.sender == owner, ErrorCodes.NOT_OWNER);
+        require(msg.sender == owner, _ErrorCodes.NOT_OWNER);
         _;
     }
 
@@ -34,7 +34,7 @@ contract InternalOwner {
     function transferOwnership(
         address newOwner
     ) external onlyOwner {
-        require(newOwner != address.makeAddrStd(0, 0), ErrorCodes.ZERO_OWNER);
+        require(newOwner != address.makeAddrStd(0, 0), _ErrorCodes.ZERO_OWNER);
 
         setOwnership(newOwner);
     }
