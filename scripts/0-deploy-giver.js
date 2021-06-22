@@ -8,12 +8,12 @@ async function main() {
   
   const giver = await locklift.giver.deployContract({
     contract: Giver,
-    constructorParams: {},
-    initParams: {
-      owner: `0x${keyPair.public}`,
+    constructorParams: {
+      _owner: `0x${keyPair.public}`,
     },
+    initParams: {},
     keyPair,
-  }, locklift.utils.convertCrystal(100, 'nano'));
+  }, locklift.utils.convertCrystal(1, 'nano'));
   
   logger.success(`Giver: ${giver.address}`);
   logger.success(`Giver private key: ${JSON.stringify(keyPair)}`);
