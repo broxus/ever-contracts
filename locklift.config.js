@@ -13,7 +13,7 @@ module.exports = {
         }
       },
       giver: {
-        address: '0:a7524445798ee740fdc4adb3b30e06c1e30d31d5181c23636cbb75213236c8ec',
+        address: '0:6c2f2e13d566aee4cbec3ea9960184177313a9618df6237525ef5751df7ee856',
         abi: { "ABI version": 2, "header": ["pubkey", "time", "expire"], "functions": [ { "name": "constructor", "inputs": [ ], "outputs": [ ] }, { "name": "sendGrams", "inputs": [ {"name":"dest","type":"address"}, {"name":"amount","type":"uint64"} ], "outputs": [ ] }, { "name": "owner", "inputs": [ ], "outputs": [ {"name":"owner","type":"uint256"} ] } ], "data": [ {"key":1,"name":"owner","type":"uint256"} ], "events": [ ] },
         key: process.env.DEV_GIVER_KEY,
       },
