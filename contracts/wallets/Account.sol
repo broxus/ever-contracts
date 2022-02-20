@@ -36,7 +36,7 @@ contract Account is ExternalOwner, RandomNonce, CheckPubKey {
         TvmCell payload
     )
         public
-        view
+        pure
         onlyOwner
     {
         tvm.accept();
