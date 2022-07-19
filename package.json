@@ -4,7 +4,8 @@
   "description": "Set of contracts for simple smart contract development",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx locklift test -n local",
+    "deploy": "npx locklift run -s scripts/0-deploy-giver.ts -n local"
   },
   "repository": {
     "type": "git",
@@ -24,9 +25,17 @@
   },
   "homepage": "https://github.com/broxus/ton-contracts#readme",
   "dependencies": {
+    "@types/chai-as-promised": "^7.1.5",
     "chai": "^4.3.4",
     "chai-as-promised": "^7.1.1",
-    "locklift": "^1.4.5",
+    "everscale-crypto": "^0.1.1",
+    "locklift": "^2.1.6",
     "mocha-logger": "^1.0.7"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.1",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "^18.0.6",
+    "prettier": "^2.7.1"
   }
 }
