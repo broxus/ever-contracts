@@ -12,7 +12,7 @@ contract InternalOwner {
     event OwnershipTransferred(address previousOwner, address newOwner);
 
     modifier onlyOwner() {
-        require(msg.sender == owner, _ErrorCodes.NOT_OWNER);
+        require(msg.sender == owner && msg.sender.value != 0, _ErrorCodes.NOT_OWNER);
         _;
     }
 
