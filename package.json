@@ -1,6 +1,6 @@
 {
   "name": "@broxus/contracts",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "Set of contracts for simple smart contract development",
   "main": "index.js",
   "scripts": {
@@ -9,21 +9,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/broxus/ton-contracts.git"
+    "url": "git+https://github.com/broxus/ever-contracts.git"
   },
   "keywords": [
     "solidity",
-    "freeton",
-    "ton",
+    "everscale",
+    "tvm",
     "smart",
     "contracts"
   ],
   "author": "pavlovdog_ <pavlovdog.moscow@gmail.com>",
+  "contributors": ["30mb1 <steam.30mb1@gmail.com>"],
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/broxus/ton-contracts/issues"
+    "url": "https://github.com/broxus/ever-contracts/issues"
   },
-  "homepage": "https://github.com/broxus/ton-contracts#readme",
+  "homepage": "https://github.com/broxus/ever-contracts#readme",
   "dependencies": {
     "@types/chai-as-promised": "^7.1.5",
     "chai": "^4.3.4",
