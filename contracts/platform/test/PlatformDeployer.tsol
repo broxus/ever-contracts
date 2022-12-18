@@ -1,7 +1,7 @@
 pragma ton-solidity >= 0.39.0;
 
-import "../Platform.sol";
-import "../../libraries/MsgFlag.sol";
+import "../Platform.tsol";
+import "../../libraries/MsgFlag.tsol";
 
 contract PlatformDeployer {
     uint8 constant DEFAULT_PLATFORM_TYPE = 1;

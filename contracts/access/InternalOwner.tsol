@@ -3,7 +3,7 @@ pragma AbiHeader expire;
 pragma AbiHeader pubkey;
 
 
-import "./../_ErrorCodes.sol";
+import "./../_ErrorCodes.tsol";
 
 
 contract InternalOwner {

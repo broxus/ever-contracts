@@ -1,6 +1,6 @@
 pragma ton-solidity >= 0.39.0;
 
-import "../PlatformBase.sol";
+import "../PlatformBase.tsol";
 
 contract TestPlatform is PlatformBase {
     uint32 public /*static*/ id;

@@ -1,6 +1,6 @@
 pragma ton-solidity >= 0.39.0;
 
-import "../libraries/MsgFlag.sol";
+import "../libraries/MsgFlag.tsol";
 
 
 contract Platform {

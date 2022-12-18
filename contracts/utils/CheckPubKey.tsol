@@ -1,7 +1,7 @@
 pragma ton-solidity >= 0.39.0;
 
 
-import "./../_ErrorCodes.sol";
+import "./../_ErrorCodes.tsol";
 
 
 contract CheckPubKey {

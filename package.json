@@ -30,7 +30,7 @@
     "chai": "^4.3.4",
     "chai-as-promised": "^7.1.1",
     "everscale-crypto": "^0.1.1",
-    "locklift": "^2.1.6",
+    "locklift": "^2.4.5",
     "mocha-logger": "^1.0.7"
   },
   "devDependencies": {
