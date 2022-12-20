@@ -58,7 +58,7 @@ const config: LockliftConfig = {
         type: "graphql",
         data: {
           // @ts-ignore
-          endpoints: ["http://localhost:5000/graphql"],
+          endpoints: ["http://localhost/graphql"],
           latencyDetectionInterval: 1000,
           local: true,
         },

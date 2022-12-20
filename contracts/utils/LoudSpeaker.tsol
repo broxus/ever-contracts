@@ -1,9 +1,9 @@
 pragma ton-solidity >= 0.39.0;
 
 
-import './../access/InternalOwner.sol';
-import './RandomNonce.sol';
-import './CheckPubKey.sol';
+import "./../access/InternalOwner.tsol";
+import "./RandomNonce.tsol";
+import "./CheckPubKey.tsol";
 
 
 contract LoudSpeaker is InternalOwner, RandomNonce, CheckPubKey {
