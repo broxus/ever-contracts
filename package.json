@@ -1,6 +1,6 @@
 {
   "name": "@broxus/contracts",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Set of contracts for simple smart contract development",
   "main": "index.js",
   "scripts": {
@@ -30,7 +30,7 @@
     "chai": "^4.3.4",
     "chai-as-promised": "^7.1.1",
     "everscale-crypto": "^0.1.1",
-    "locklift": "^2.4.5",
+    "locklift": "^2.4.6",
     "mocha-logger": "^1.0.7"
   },
   "devDependencies": {
