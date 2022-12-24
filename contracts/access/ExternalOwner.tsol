@@ -1,9 +1,9 @@
-pragma ton-solidity >= 0.39.0;
+pragma ever-solidity >= 0.61.2;
+
 pragma AbiHeader expire;
 pragma AbiHeader pubkey;
 
-import "./../_ErrorCodes.tsol";
-
+import "../libraries/UtilityErrors.tsol";
 
 contract ExternalOwner {
     uint public owner;
@@ -11,7 +11,7 @@ contract ExternalOwner {
     event OwnershipTransferred(uint previousOwner, uint newOwner);
 
     modifier onlyOwner() {
-        require(msg.pubkey() == owner, _ErrorCodes.NOT_OWNER);
+        require(msg.pubkey() == owner, UtilityErrors.CALLER_IS_NOT_OWNER);
         _;
     }
 
@@ -30,10 +30,9 @@ contract ExternalOwner {
     /*
         @dev Transfer ownership to the new owner
     */
-    function transferOwnership(
-        uint newOwner
-    ) external onlyOwner {
-        require(newOwner != 0, _ErrorCodes.ZERO_OWNER);
+    function transferOwnership(uint newOwner) external onlyOwner {
+        require(newOwner != 0, UtilityErrors.INVALID_NEW_OWNER);
+
         tvm.accept();
 
         setOwnership(newOwner);

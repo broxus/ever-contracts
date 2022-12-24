@@ -1,12 +1,13 @@
-pragma ton-solidity >= 0.39.0;
+pragma ever-solidity >= 0.61.2;
 
-
-import "./../_ErrorCodes.tsol";
-
+import "../libraries/UtilityErrors.tsol";
 
 contract CheckPubKey {
     modifier checkPubKey() {
-        require(msg.pubkey() == tvm.pubkey(), _ErrorCodes.DIFFERENT_PUB_KEYS);
+        require(
+            msg.pubkey() == tvm.pubkey(),
+            UtilityErrors.DIFFERENT_PUB_KEYS
+        );
         _;
     }
 }

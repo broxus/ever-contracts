@@ -1,12 +1,14 @@
-pragma ton-solidity >= 0.39.0;
-
+pragma ever-solidity >= 0.61.2;
 
 import "./../access/InternalOwner.tsol";
 import "./RandomNonce.tsol";
 import "./CheckPubKey.tsol";
 
-
-contract LoudSpeaker is InternalOwner, RandomNonce, CheckPubKey {
+contract LoudSpeaker is
+    InternalOwner,
+    RandomNonce,
+    CheckPubKey
+{
     event Echo(string text);
 
     constructor(address _owner) public checkPubKey {
@@ -15,7 +17,7 @@ contract LoudSpeaker is InternalOwner, RandomNonce, CheckPubKey {
         setOwnership(_owner);
     }
 
-    function echo(string text) external onlyOwner {
+    function echo(string text) external view onlyOwner {
         emit Echo(text);
     }
 }

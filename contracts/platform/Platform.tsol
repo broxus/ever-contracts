@@ -1,7 +1,6 @@
-pragma ton-solidity >= 0.39.0;
+pragma ever-solidity >= 0.61.2;
 
 import "../libraries/MsgFlag.tsol";
-
 
 contract Platform {
     address static root;
@@ -9,16 +8,27 @@ contract Platform {
     TvmCell static initialData;
     TvmCell static platformCode;
 
-    constructor(TvmCell code, TvmCell params, address sendGasTo) public {
+    constructor(
+        TvmCell code,
+        TvmCell params,
+        address sendGasTo
+    ) public {
         if (msg.sender != root) {
-           msg.sender.transfer({value: 0, flag: MsgFlag.ALL_NOT_RESERVED + MsgFlag.DESTROY_IF_ZERO, bounce: false});
+           msg.sender.transfer({
+               value: 0,
+               flag: MsgFlag.ALL_NOT_RESERVED + MsgFlag.DESTROY_IF_ZERO,
+               bounce: false
+           });
         } else {
             initialize(code, params, sendGasTo);
         }
     }
 
-    function initialize(TvmCell code, TvmCell params, address sendGasTo) private {
-
+    function initialize(
+        TvmCell code,
+        TvmCell params,
+        address sendGasTo
+    ) private {
         TvmBuilder builder;
 
         builder.store(root);

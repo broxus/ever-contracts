@@ -1,10 +1,9 @@
-pragma ton-solidity >= 0.39.0;
+pragma ever-solidity >= 0.61.2;
+
 pragma AbiHeader expire;
 pragma AbiHeader pubkey;
 
-
-import "./../_ErrorCodes.tsol";
-
+import "../libraries/UtilityErrors.tsol";
 
 contract InternalOwner {
     address public owner;
@@ -12,7 +11,10 @@ contract InternalOwner {
     event OwnershipTransferred(address previousOwner, address newOwner);
 
     modifier onlyOwner() {
-        require(msg.sender == owner && msg.sender.value != 0, _ErrorCodes.NOT_OWNER);
+        require(
+            msg.sender == owner && msg.sender.value != 0,
+            UtilityErrors.CALLER_IS_NOT_OWNER
+        );
         _;
     }
 
@@ -31,10 +33,11 @@ contract InternalOwner {
     /*
         @dev Transfer ownership to the new owner
     */
-    function transferOwnership(
-        address newOwner
-    ) external onlyOwner {
-        require(newOwner != address.makeAddrStd(0, 0), _ErrorCodes.ZERO_OWNER);
+    function transferOwnership(address newOwner) external onlyOwner {
+        require(
+            newOwner != address.makeAddrStd(0, 0),
+            UtilityErrors.INVALID_NEW_OWNER
+        );
 
         setOwnership(newOwner);
     }
