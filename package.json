@@ -21,7 +21,9 @@
     "contracts"
   ],
   "author": "pavlovdog_ <pavlovdog.moscow@gmail.com>",
-  "contributors": ["30mb1 <steam.30mb1@gmail.com>"],
+  "contributors": [
+    "30mb1 <steam.30mb1@gmail.com>"
+  ],
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/broxus/ever-contracts/issues"
