@@ -1,10 +1,8 @@
 pragma ever-solidity >= 0.61.2;
 
-import "./IFactory.tsol";
-
 /// @title Factory with Platform Interface
 /// @notice Interface for interaction with factory with platform contract
-interface IFactoryWithPlatform is IFactory {
+interface IFactoryWithPlatform {
     /// @notice Emits when platform's code is set
     /// @dev Should be emitted only once inside _setPlatformCodeInternal()
     event PlatformCodeSet();
