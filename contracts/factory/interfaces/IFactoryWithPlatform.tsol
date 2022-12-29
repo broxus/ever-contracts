@@ -5,7 +5,7 @@ pragma ever-solidity >= 0.61.2;
 interface IFactoryWithPlatform {
     /// @notice Emits when platform's code is set
     /// @dev Should be emitted only once inside _setPlatformCodeInternal()
-    event PlatformCodeSet();
+    event PlatformCodeSet(uint codeHash);
 
     /// @notice Get the current platform's code
     /// @return TvmCell Code of the platform

@@ -109,6 +109,9 @@ abstract contract Factory is
         TvmCell _newInstanceCode,
         optional(uint32) _newInstanceVersion
     ) internal {
+        uint32 previousVersion = _instanceVersion;
+        TvmCell previousCode = _instanceCode;
+
         // Update code and version
         _instanceCode = _newInstanceCode;
 
@@ -121,7 +124,9 @@ abstract contract Factory is
         // Emit event about change
         emit InstanceVersionChanged(
             _instanceVersion,
-            _instanceVersion - 1
+            previousVersion,
+            tvm.hash(_instanceCode),
+            tvm.hash(previousCode)
         );
     }
 
