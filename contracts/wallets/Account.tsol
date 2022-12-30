@@ -1,19 +1,22 @@
-pragma ton-solidity >= 0.39.0;
+pragma ever-solidity >= 0.61.2;
+
 pragma AbiHeader expire;
 pragma AbiHeader pubkey;
-
 
 import "./../access/ExternalOwner.tsol";
 import "./../utils/RandomNonce.tsol";
 import "./../utils/CheckPubKey.tsol";
-
 
 /*
     @title Simple externally owned contract
     @dev Allows to interact with any smart contract by sending an internal messages
     or simply transfer TONs
 */
-contract Account is ExternalOwner, RandomNonce, CheckPubKey {
+contract Account is
+    ExternalOwner,
+    RandomNonce,
+    CheckPubKey
+{
     constructor() public checkPubKey {
         tvm.accept();
 
