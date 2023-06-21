@@ -9,5 +9,5 @@ abstract contract PlatformBase {
         _;
     }
 
-    constructor() public { revert(); }
+    constructor() { revert(); }
 }

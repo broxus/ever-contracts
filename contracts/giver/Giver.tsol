@@ -17,7 +17,7 @@ contract Giver is
     RandomNonce,
     CheckPubKey
 {
-    constructor(uint _owner) public checkPubKey {
+    constructor(uint _owner) checkPubKey {
         tvm.accept();
 
         setOwnership(_owner);
