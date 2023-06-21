@@ -12,7 +12,7 @@ contract Platform {
         TvmCell code,
         TvmCell params,
         address sendGasTo
-    ) public {
+    ) {
         if (msg.sender != root) {
            msg.sender.transfer({
                value: 0,

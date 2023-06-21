@@ -11,7 +11,7 @@ contract LoudSpeaker is
 {
     event Echo(string text);
 
-    constructor(address _owner) public checkPubKey {
+    constructor(address _owner) checkPubKey {
         tvm.accept();
 
         setOwnership(_owner);
