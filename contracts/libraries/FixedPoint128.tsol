@@ -1,4 +1,4 @@
-pragma ever-solidity >= 0.61.2;
+pragma ever-solidity >= 0.68.0;
 
 /// @title FP128 Utility
 /// @dev Range: [0, 2 ** 128 - 1]. Resolution: 1 / 2 ** 128

@@ -1,4 +1,4 @@
-pragma ever-solidity >= 0.61.2;
+pragma ever-solidity >= 0.68.0;
 
 /// @title Upgrader Interface
 /// @notice Interface for upgrader-contract implementation

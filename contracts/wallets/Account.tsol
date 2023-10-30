@@ -1,4 +1,4 @@
-pragma ever-solidity >= 0.61.2;
+pragma ever-solidity >= 0.68.0;
 
 pragma AbiHeader expire;
 pragma AbiHeader pubkey;
@@ -17,7 +17,7 @@ contract Account is
     RandomNonce,
     CheckPubKey
 {
-    constructor() public checkPubKey {
+    constructor() checkPubKey {
         tvm.accept();
 
         setOwnership(msg.pubkey());

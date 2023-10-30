@@ -1,4 +1,4 @@
-pragma ever-solidity >= 0.61.2;
+pragma ever-solidity >= 0.68.0;
 
 abstract contract PlatformBase {
     address public /*static*/ root;
@@ -9,5 +9,5 @@ abstract contract PlatformBase {
         _;
     }
 
-    constructor() public { revert(); }
+    constructor() { revert(); }
 }
