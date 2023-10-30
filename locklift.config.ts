@@ -9,10 +9,10 @@ declare global {
 
 const config: LockliftConfig = {
   compiler: {
-    version: "0.70.0",
+    version: "0.68.0",
   },
   linker: {
-    version: "0.20.3",
+    version: "0.20.6",
   },
   networks: {
     local: {

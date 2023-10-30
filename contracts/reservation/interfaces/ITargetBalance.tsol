@@ -1,4 +1,4 @@
-pragma ever-solidity >= 0.61.2;
+pragma ever-solidity >= 0.68.0;
 
 /// @title Target Balance Interface
 /// @notice Interface for interaction with contract with target balance

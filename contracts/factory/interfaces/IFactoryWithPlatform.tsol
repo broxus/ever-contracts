@@ -1,4 +1,4 @@
-pragma ever-solidity >= 0.61.2;
+pragma ever-solidity >= 0.68.0;
 
 /// @title Factory with Platform Interface
 /// @notice Interface for interaction with factory with platform contract
