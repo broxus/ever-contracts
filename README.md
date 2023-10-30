@@ -1,4 +1,9 @@
 <p align="center">
+    <a href="https://www.npmjs.com/package/@broxus/contracts">
+        <img alt="npm" src="https://img.shields.io/npm/v/@broxus/contracts">
+    </a>
+</p>
+<p align="center">
   <a href="https://github.com/venom-blockchain/developer-program">
     <img src="https://raw.githubusercontent.com/venom-blockchain/developer-program/main/vf-dev-program.png" alt="Logo" width="366.8" height="146.4">
   </a>
