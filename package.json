@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "description": "Set of contracts for simple smart contract development",
   "scripts": {
-    "build": "locklift build && locklift build --contracts examples",
+    "build": "locklift build",
     "format": "prettier --write \"test/**/*.ts\"",
     "lint": "eslint \"test/**/*.spec.ts\" --fix",
     "test": "locklift test --disable-build -n local",
