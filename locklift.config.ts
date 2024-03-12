@@ -12,9 +12,6 @@ const config: LockliftConfig = {
     version: "0.73.0",
     mode: "sold",
   },
-  linker: {
-    version: "0.20.6",
-  },
   networks: {
     local: {
       // Specify connection settings for https://github.com/broxus/everscale-standalone-client/

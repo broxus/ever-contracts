@@ -1,6 +1,6 @@
 {
   "name": "@broxus/contracts",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Set of contracts for simple smart contract development",
   "scripts": {
     "build": "locklift build",
