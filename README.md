@@ -12,3 +12,7 @@
 # Ever contracts
 
 Set of reusable smart contracts for Everscale / VENOM developers
+
+# Versions
+- 1.1.1 - [tsol >=0.39.0]
+- 2.0.0 - [tsol >=0.68.0]
