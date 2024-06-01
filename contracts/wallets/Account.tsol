@@ -33,7 +33,7 @@ contract Account is
     */
     function sendTransaction(
         address dest,
-        uint128 value,
+        varUint16 value,
         bool bounce,
         uint8 flags,
         TvmCell payload
